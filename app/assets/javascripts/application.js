@@ -9,7 +9,22 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-//
+
+//= require jquery.min.js
+//= require jquery-migrate.min.js
+//= require bootstrap.bundle.min.js
+//= require easing.min.js
+//= require hoverIntent.js
+//= require superfish.min.js
+//= require wow.min.js
+//= require waypoints.min.js
+//= require counterup.min.js
+//= require owl.carousel.min.js
+//= require isotope.pkgd.min.js
+//= require lightbox.min.js
+//= require jquery.touchSwipe.min.js
+//= require contactform.js
+//= require main.js
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
