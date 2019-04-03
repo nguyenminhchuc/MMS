@@ -5,17 +5,25 @@
     </div>
     <nav id="nav-menu-container">
       <ul class="nav-menu">
-        <li class="menu-active"><a href="#intro">Home</a></li>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#team">Team</a></li>
-        <li class="menu-has-children"><a href="">Acount</a>
+        <li class="menu-active"><a href="#intro"><%= t "home" %></a></li>
+        <li><a href="#about"><%= t "about" %></a></li>
+        <li><a href="#services"><%= t "service" %></a></li>
+        <li><a href="#portfolio"><%= t "portfolio" %></a></li>
+        <li><a href="#team"><%= t "team" %></a></li>
+        <li><a href="#contact"><%= t "contact" %></a></li>
+          <li><%= link_to t("english"), locale:"en" %></li>
+          <li><%= link_to t("vietnamese"), locale:"vi" %></li>
+        <% if user_signed_in? %>
+        <li class="menu-has-children"><a href=""><%= t "account" %></a>
           <ul>
-            <li><a href="#">Drop Down 1</a></li>
+            <li><%= link_to t("profile"), edit_user_registration_path %></li>
+            <li><%= link_to t("log_out"), destroy_user_session_path, method: :delete %></li>
           </ul>
         </li>
-        <li><a href="#contact">Contact</a></li>
+        <% else %>
+          <li><%= link_to t("signup"), new_user_registration_path %></li>
+          <li><%= link_to t("signin"), new_user_session_path %></li>
+        <% end %>
       </ul>
     </nav><!-- #nav-menu-container -->
   </div>

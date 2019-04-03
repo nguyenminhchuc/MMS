@@ -3,9 +3,9 @@ class User < ApplicationRecord
 
   has_many :relationship_skills
   has_many :skills, through: :relationship_skills
-  belongs_to :prosition
-  belongs_to :team
-  belongs_to :project
+  belongs_to :prosition, optional: true
+  belongs_to :team, optional: true
+  belongs_to :project, optional: true
 
   validates :name, presence: true, length: {minimum: Settings.min}
   validates :birthday, presence: true
@@ -13,5 +13,5 @@ class User < ApplicationRecord
   validates :email, presence: true, format: {with: VALID_EMAIL_REGEX}
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :confirmable
+         :recoverable, :rememberable, :validatable
 end
