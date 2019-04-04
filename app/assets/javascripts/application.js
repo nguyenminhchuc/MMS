@@ -25,6 +25,7 @@
 //= require jquery.touchSwipe.min.js
 //= require contactform.js
 //= require main.js
+//= require bootstrap-datepicker
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks

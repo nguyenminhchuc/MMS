@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_03_080214) do
+ActiveRecord::Schema.define(version: 2019_04_04_043220) do
 
   create_table "positions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 2019_04_03_080214) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.date "birthday"
-    t.integer "role"
+    t.integer "role", default: 1
     t.bigint "team_id"
     t.bigint "project_id"
     t.bigint "position_id"
