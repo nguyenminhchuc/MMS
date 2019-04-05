@@ -1,0 +1,10 @@
+<tr>
+  <td><%= team.name %></td>
+  <td><%= team.description %></td>
+  <td><%= team.name_leader_team %></td>
+  <td>
+  <%= link_to "Edit", edit_admin_team_path(team), remote: true, class: "btn btn-sm btn-info" %>
+  <%= link_to "Delete", admin_team_path(team), :method => :delete, data: {confirm: "Delete team: #{team.name} #{team.description}"}, class: "btn btn-sm btn-danger" %>
+  </td>
+</tr>
+<br>
