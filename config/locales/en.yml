@@ -20,4 +20,8 @@ en:
   remember_me: "remember me"
   current_password: "current password"
   update: "Update"
-
+  skill: "Skill"
+  prosition: "Prosition"
+  users: "Users"
+  project: "Projects"
+  dashboard: "Dashboard"
