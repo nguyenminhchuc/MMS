@@ -1,0 +1,25 @@
+<%= form_with(scope: :team, url: admin_teams_path) do |form| %>
+  <%= render 'error' %>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <p>
+        <%= form.label t"name" %><br>
+        <%= form.text_field :name, class:"form-control" %>
+      </p>
+
+      <p>
+        <%= form.label t"description" %><br>
+        <%= form.text_area :description, class:"form-control"%>
+      </p>
+
+      <p>
+        <%= form.label t"leader" %><br>
+        <%= form.text_field :name_leader_team, class:"form-control" %>
+      </p>
+
+      <p>
+        <%= form.submit  t"create_team", class: "btn btn-primary" %>
+      </p>
+  </div>
+</div>
+<% end %>
