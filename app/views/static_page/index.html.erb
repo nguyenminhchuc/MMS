@@ -14,17 +14,17 @@
           <li><%= link_to t("english"), locale:"en" %></li>
           <li><%= link_to t("vietnamese"), locale:"vi" %></li>
         <% if user_signed_in? %>
-        <li class="menu-has-children"><a href=""><%= t "account" %></a>
+        <li class="menu-has-children"><a href=""><%= current_user.name %></a>
           <ul>
             <li><%= link_to t("profile"), edit_user_registration_path %></li>
             <li><%= link_to t("log_out"), destroy_user_session_path, method: :delete %></li>
+              <li><%= link_to "dashboard", admin_root_path %></li>
           </ul>
         </li>
         <% else %>
           <li><%= link_to t("signup"), new_user_registration_path %></li>
           <li><%= link_to t("signin"), new_user_session_path %></li>
         <% end %>
-          <li><%= link_to "dashboard", admin_root_path %></li>
       </ul>
     </nav><!-- #nav-menu-container -->
   </div>
