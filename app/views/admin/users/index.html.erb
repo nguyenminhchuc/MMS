@@ -1,0 +1,70 @@
+<body class="home">
+  <div class="container-fluid display-table">
+    <div class="row display-table-row">
+      <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
+        <%= render 'admin/dashboard/siderbar' %>
+      </div>
+      <div class="col-md-10 col-sm-11 display-table-cell v-align">
+        <div class="row">
+          <header>
+            <div class="col-md-7">
+            </div>
+            <div class="col-md-5">
+              <div class="header-rightside">
+                <ul class="list-inline header-top pull-right">
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                      <%= image_tag "team-1.jpg" %>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <div class="navbar-content">
+                          <span>admin</span>
+                          <p class="text-muted small">
+                            me@gmail.com
+                          </p>
+                          <%= link_to t("profile"), "#", class:"view btn-sm active" %>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </header>
+        </div>
+        <div class="user-dashboard">
+          <table id class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th><%= t "name" %></th>
+                <th><%= t "description" %></th>
+                <th><%= t "team" %></th>
+                <th><%= t "skill" %></th>
+                <th><%= t "actions" %></th>
+              </tr>
+            <tbody>
+            <% @users.each do |u| %>
+            <tr>
+              <td><%= u.name %></td>
+              <td><%= u.email %></td>
+              <td><%= u.team_id %></td>
+              <td>
+                <% u.skills.each do |k| %>
+                 <b><%= k.name %></b>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to t("delete"), admin_user_path(u), :method => :delete, data: {confirm: "Delete user: #{u.name}"}, class: "btn btn-sm btn-danger" %>
+                <%= link_to t("update"), edit_admin_user_path(u), remote: true, class: "btn btn-primary" %>
+              </td>
+            </tr>
+          <% end %>
+          </tbody>
+          </table>
+          <div class="update_user">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

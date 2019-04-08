@@ -36,3 +36,5 @@ vi:
   create_team: "Tạo team"
   team_deleted: "team đã xóa"
   delete_fail: "không xóa được"
+  update_user: "cập nhật người dùng"
+  delete: "Xóa"

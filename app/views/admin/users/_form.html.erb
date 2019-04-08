@@ -1,0 +1,36 @@
+<%= form_with(model: [:admin, @user]) do |form| %>
+  <%= render "error" %>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <p>
+        <%= form.label t"name" %><br>
+        <%= form.text_field :name, :readonly => true, class:"form-control" %>
+      </p>
+      <p>
+        <%= form.label :position %><br>
+        <%= select("user", "position_id", Position.all.collect {|c| [ c.name, c.id ] }, {prompt: 'Select position', selected: '', disabled: ''}) %>
+      </p>
+      <p>
+        <%= form.label t"team" %><br>
+        <%= select("user", "team_id", Team.all.collect {|c| [ c.name, c.id ] }, {prompt: 'Select team', selected: '', disabled: ''}) %>
+      </p>
+      <p>
+        <%= form.label t"skill" %><br>
+        <%= form.collection_check_boxes :skill_ids, Skill.all, :id, :name %>
+      </p>
+      <p>
+        <%= form.fields_for :skills, @user.skills.build do |skills| %>
+          <%= skills.label t"skill" %><br>
+          <%= skills.text_field :name, class:"form-control" %><br>
+          <%= skills.label :level %><br>
+          <%= skills.text_field :level, class:"form-control" %><br>
+          <%= skills.label :used_year_member %><br>
+          <%= skills.text_field :used_year_member, class:"form-control" %><br>
+        <% end %>
+      </p>
+      <p>
+        <%= form.submit t("update_user"), class: "btn btn-primary" %>
+      </p>
+    </div>
+  </div>
+  <% end %>
