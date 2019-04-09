@@ -36,3 +36,5 @@ en:
   create_team: "create team"
   team_deleted: "team deleted"
   delete_fail: "delete fail"
+  update_user: "update user"
+  delete: "Delete"

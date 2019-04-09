@@ -1,6 +1,5 @@
 class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-
   has_many :relationship_skills
   has_many :skills, through: :relationship_skills
   belongs_to :prosition, optional: true
@@ -14,4 +13,8 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  scope :newest, -> {order created_at: :desc}
+
+  accepts_nested_attributes_for :skills
 end
