@@ -38,3 +38,8 @@ vi:
   delete_fail: "không xóa được"
   update_user: "cập nhật người dùng"
   delete: "Xóa"
+  short_name: "tên ngắn"
+  start_date: "Ngày bắt đầu"
+  end_date: "ngày kết thúc"
+  create_project: "tạo dự án"
+  project_deleted: "dự án đã xóa"

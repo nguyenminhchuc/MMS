@@ -1,6 +1,3 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <body class="home">
   <div class="container-fluid display-table">
     <div class="row display-table-row">
@@ -21,9 +18,9 @@
                     <ul class="dropdown-menu">
                       <li>
                         <div class="navbar-content">
-                          <span>admin</span>
+                          <span><%= current_user.name %></span>
                           <p class="text-muted small">
-                            me@gmail.com
+                            <%= current_user.email %>
                           </p>
                           <%= link_to t("profile"), "#", class:"view btn-sm active" %>
                         </div>
@@ -40,17 +37,18 @@
             <thead>
               <tr>
                 <th><%= t "name" %></th>
-                <th><%= t "description" %></th>
-                <th><%= t "leader" %></th>
+                <th><%= t "short_name" %></th>
+                <th><%= t "start_date" %></th>
+                <th><%= t "end_date" %></th>
                 <th><%= t "actions" %></th>
               </tr>
             </thead>
-            <tbody id="customers">
-              <%= render @teams %>
+            <tbody id="projects">
+              <%= render @projects %>
             </tbody>
           </table>
-          <div class="new_team">
-            <%= link_to t("new_team"), new_admin_team_path, remote: true, class: "btn btn-primary" %>
+          <div class="new_project">
+            <%= link_to "new project", new_admin_project_path, remote: true, class: "btn btn-primary" %>
           </div>
         </div>
       </div>

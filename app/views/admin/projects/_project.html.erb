@@ -1,0 +1,11 @@
+<tr>
+  <td><%= project.name %></td>
+  <td><%= project.short_name %></td>
+  <td><%= project.start_date %></td>
+  <td><%= project.end_date %></td>
+  <td>
+  <%= link_to "Edit", edit_admin_project_path(project), class: "btn btn-sm btn-info" %>
+  <%= link_to "Delete", admin_project_path(project), :method => :delete, data: {confirm: "Delete team: #{project.name}"}, class: "btn btn-sm btn-danger" %>
+  </td>
+</tr>
+<br>
