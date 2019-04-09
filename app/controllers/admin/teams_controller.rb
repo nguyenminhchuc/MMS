@@ -1,5 +1,5 @@
 class Admin::TeamsController < ApplicationController
-  before_action :find_team_by_id, only: [:show, :edit, :update, :destroy]
+  before_action :find_team_by_id, only: %i(edit update destroy)
 
   def index
     @teams = Team.newest
@@ -25,6 +25,17 @@ class Admin::TeamsController < ApplicationController
     end
   end
 
+  def edit; end
+
+  def update
+    respond_to do |format|
+      if @team.update team_params
+        format.json { head :no_content }
+        format.js
+      end
+    end
+  end
+
   def destroy
     if @team.destroy
       flash[:success] = t "tour_deleted"
@@ -45,6 +56,6 @@ class Admin::TeamsController < ApplicationController
   end
 
   def team_params
-    params.require(:team).permit :name, :description, :name_leader_team
+    params.require(:team).permit :name, :description, :name_leader_team, :project_id
   end
 end
