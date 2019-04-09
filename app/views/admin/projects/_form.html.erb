@@ -1,0 +1,30 @@
+<%= form_with(scope: :project, url: admin_projects_path) do |form| %>
+  <%= render "error" %>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <p>
+        <%= form.label t"name" %><br>
+        <%= form.text_field :name, class:"form-control" %>
+      </p>
+
+      <p>
+        <%= form.label t"short_name" %><br>
+        <%= form.text_field :short_name, class:"form-control"%>
+      </p>
+
+      <p>
+      <%= form.label t"start_date" %>
+      <%= form.text_field :start_date, "data-provide" => 'datepicker', class: "form-control" %>
+      </p>
+
+      <p>
+      <%= form.label t"end_date" %>
+      <%= form.text_field :end_date, "data-provide" => 'datepicker', class: "form-control" %>
+      </p>
+
+      <p>
+        <%= form.submit  t("create_project"), class: "btn btn-primary" %>
+      </p>
+  </div>
+</div>
+<% end %>
